@@ -415,10 +415,10 @@ public class JavaMetricProvider implements MetricProvider {
         profile.addMetric(NumDependentPackagesPackageMetric.class);
         profile.addMetric(NumDependentsClassMetric.class);
         profile.addMetric(NumDependentsInterfaceMetric.class);
-        profile.addMetric(NumTransitiveDependenciesClassMetric.class);
-        profile.addMetric(NumTransitiveDependenciesInterfaceMetric.class);
-        profile.addMetric(NumTransitiveDependentsClassMetric.class);
-        profile.addMetric(NumTransitiveDependentsInterfaceMetric.class);
+        // profile.addMetric(NumTransitiveDependenciesClassMetric.class);
+        // profile.addMetric(NumTransitiveDependenciesInterfaceMetric.class);
+        // profile.addMetric(NumTransitiveDependentsClassMetric.class);
+        // profile.addMetric(NumTransitiveDependentsInterfaceMetric.class);
         return profile;
     }
 
