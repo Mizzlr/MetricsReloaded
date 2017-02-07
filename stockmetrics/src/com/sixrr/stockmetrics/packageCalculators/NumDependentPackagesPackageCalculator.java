@@ -32,10 +32,12 @@ public class NumDependentPackagesPackageCalculator extends PackageCalculator {
     @Override
     public void endMetricsRun() {
         for (PsiPackage aPackage : packages) {
-            final DependentsMap dependencyMap = getDependentsMap();
-            final Set<PsiPackage> dependentPackages = dependencyMap.calculatePackageToPackageDependents(aPackage);
-            final int numDependencies = dependentPackages.size();
-            postMetric(aPackage, numDependencies);
+            if (aPackage!=null) {
+                final DependentsMap dependencyMap = getDependentsMap();
+                final Set<PsiPackage> dependentPackages = dependencyMap.calculatePackageToPackageDependents(aPackage);
+                final int numDependencies = dependentPackages.size();
+                postMetric(aPackage, numDependencies);
+            }
         }
     }
 

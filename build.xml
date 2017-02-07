@@ -2,11 +2,11 @@
 
 <project name="MetricsReloaded" default="package">
 
-  <property file="build.properties"/>
+  <!--<property file="build.properties"/>-->
 
   <!-- override these two in a build.properties file -->
-  <property name="idea.dir" value="/Applications/IntelliJ IDEA 14.1"/>
-  <property name="idea.plugin.dir" value="${user.home}/Library/Application Support/IntelliJIdea14"/>
+  <property name="idea.dir" value="/Applications/IntelliJ IDEA.app/Contents"/>
+  <property name="idea.plugin.dir" value="${user.home}/Library/Application Support/IntelliJIdea2016.1"/>
 
   <property name="src.dir" value="src"/>
   <property name="build.classes.dir" value="build/jar-classes"/>
@@ -44,16 +44,14 @@
     <pathelement location="lib/args4j-2.32.jar"/>
     <pathelement location="${openapi.jar.file}"/>
     <pathelement location="${utils.jar.file}"/>
-    <pathelement location="${idea.dir}/lib/idea.jar"/>
-    <pathelement location="${idea.dir}/lib/openAPI.jar"/>
-    <pathelement location="${idea.dir}/lib/jdom.jar"/>
-    <pathelement location="${idea.dir}/lib/util.jar"/>
-    <pathelement location="${idea.dir}/lib/extensions.jar"/>
-    <pathelement location="${idea.dir}/redist/forms_rt.jar"/>
-    <pathelement location="${idea.dir}/redist/annotations.jar"/>
+    <fileset dir="${idea.dir}/lib" includes="*.jar"/>
+    <fileset dir="${idea.dir}/redist" includes="*.jar"/>
+    <fileset dir="${idea.dir}/plugins" includes="**/*.jar"/>
+    <fileset dir="${idea.plugin.dir}" includes="**/*.jar"/>
   </path>
 
   <path id="javac2.classpath">
+    <pathelement location="${idea.dir}/lib/jdom.jar"/>
     <pathelement location="${idea.dir}/lib/javac2.jar"/>
     <pathelement location="${idea.dir}/lib/asm-all.jar"/>
   </path>
