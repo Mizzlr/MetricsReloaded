@@ -32,10 +32,12 @@ public class NumCyclicDependenciesPackageCalculator extends PackageCalculator {
     @Override
     public void endMetricsRun() {
         for (PsiPackage aPackage : packages) {
-            final DependencyMap dependencyMap = getDependencyMap();
-            final Set<PsiPackage> component = dependencyMap.calculateStronglyConnectedPackageComponents(aPackage);
-            final int cyclicDependencies = component.size() - 1;
-            postMetric(aPackage, (double) cyclicDependencies);
+            if (aPackage!=null) {
+                final DependencyMap dependencyMap = getDependencyMap();
+                final Set<PsiPackage> component = dependencyMap.calculateStronglyConnectedPackageComponents(aPackage);
+                final int cyclicDependencies = component.size() - 1;
+                postMetric(aPackage, (double) cyclicDependencies);
+            }
         }
     }
 

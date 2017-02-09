@@ -3,4 +3,6 @@
 *.iml
 *.ipr
 *.iws
+build/**
+**/build/**
 
