@@ -155,6 +155,11 @@ public class JavaMetricProvider implements MetricProvider {
         metrics.add(new HalsteadIntelligenceMethodMetric());
         metrics.add(new HalsteadProgramTimeMethodMetric());
 
+        metrics.add(new HalsteadSmallN1MethodMetric());
+        metrics.add(new HalsteadSmallN2MethodMetric());
+        metrics.add(new HalsteadBigN1MethodMetric());
+        metrics.add(new HalsteadBigN2MethodMetric());
+
         metrics.add(new JavadocLinesOfCodeMethodMetric());
         metrics.add(new LinesOfCodeMethodMetric());
         metrics.add(new LoopNestingDepthMetric());
@@ -992,11 +997,10 @@ public class JavaMetricProvider implements MetricProvider {
         profile.addMetric(HalsteadEffortMethodMetric.class);
         profile.addMetric(HalsteadBugsMethodMetric.class);
         profile.addMetric(HalsteadProgramTimeMethodMetric.class); // implemented this
-        // profile.addMetric(.class);
-        // profile.addMetric(.class);
-        // profile.addMetric(.class);
-        // profile.addMetric(.class);
-        // profile.addMetric(.class);
+        profile.addMetric(HalsteadSmallN1MethodMetric.class); // the n1
+        profile.addMetric(HalsteadSmallN2MethodMetric.class); // the n2
+        profile.addMetric(HalsteadBigN1MethodMetric.class); // the N1
+        profile.addMetric(HalsteadBigN2MethodMetric.class); // the N2
         return profile;
     }
 }
