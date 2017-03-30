@@ -69,6 +69,7 @@ public class MaintainabilityIndexMethodCalculator extends MethodCalculator {
             methodNestingDepth--;
             // if (methodNestingDepth == 0 && !MethodUtils.isAbstract(method)) {
             //     postMetric(method, elementCount);
+            // }
 // ------------------------------------------------------
             if (methodNestingDepth == 0 && !MethodUtils.isAbstract(method)) {
                 final HalsteadVisitor visitor = new HalsteadVisitor();
@@ -86,7 +87,6 @@ public class MaintainabilityIndexMethodCalculator extends MethodCalculator {
             methodNestingDepth++;
             super.visitMethod(method);
             methodNestingDepth--;
-            }
         }
     }
 
