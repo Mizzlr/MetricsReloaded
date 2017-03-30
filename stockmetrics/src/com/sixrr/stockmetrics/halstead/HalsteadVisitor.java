@@ -59,7 +59,11 @@ public class HalsteadVisitor extends JavaRecursiveElementVisitor {
 
     public double getIntelligence() {
         // this.INTELLIGENT_CONTENT=(2*this.n2/(this.n1*this.N2)) * this.VOLUME;
-        return 2 * getNumDistinctOperands() / (getNumDistinctOperators() * numOperands) * getVolume();
+        if (getNumDistinctOperands() != 0 && numOperands != 0) {
+            return (2 * getNumDistinctOperands() / (getNumDistinctOperators() * numOperands)) * getVolume();
+        } else {
+            return 0.0;
+        }
     }
 
     public double getProgramTime() {
