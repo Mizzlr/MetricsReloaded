@@ -57,16 +57,16 @@ public class HalsteadVisitor extends JavaRecursiveElementVisitor {
         if (operands.size() != 0 && operators.size() != 0) {
             return operands.size() * Math.log(operands.size()) + operators.size() * Math.log(operators.size());
         } else {
-            return 0;
+            return 1e-6;
         }
     }
 
     public double getIntelligence() {
         // this.INTELLIGENT_CONTENT=(2*this.n2/(this.n1*this.N2)) * this.VOLUME;
         if (getNumDistinctOperands() != 0 && numOperands != 0) {
-            return (2 * getNumDistinctOperands() / (getNumDistinctOperators() * numOperands)) * getVolume();
+            return (2.0 * getNumDistinctOperands() / (getNumDistinctOperators() * numOperands)) * getVolume();
         } else {
-            return 0.0;
+            return 1e-6;
         }
     }
 
