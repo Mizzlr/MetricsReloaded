@@ -150,6 +150,11 @@ public class JavaMetricProvider implements MetricProvider {
         metrics.add(new HalsteadLengthMethodMetric());
         metrics.add(new HalsteadVocabularyMethodMetric());
         metrics.add(new HalsteadVolumeMethodMetric());
+
+        metrics.add(new HalsteadEstimatedLengthMethodMetric());
+        metrics.add(new HalsteadIntelligenceMethodMetric());
+        metrics.add(new HalsteadProgramTimeMethodMetric());
+
         metrics.add(new JavadocLinesOfCodeMethodMetric());
         metrics.add(new LinesOfCodeMethodMetric());
         metrics.add(new LoopNestingDepthMetric());

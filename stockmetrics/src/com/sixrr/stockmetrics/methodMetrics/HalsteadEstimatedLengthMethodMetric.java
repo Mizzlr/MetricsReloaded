@@ -20,7 +20,7 @@ import com.sixrr.metrics.MetricCalculator;
 import com.sixrr.metrics.MetricType;
 import com.sixrr.stockmetrics.i18n.HelpURLs;
 import com.sixrr.stockmetrics.i18n.StockMetricsBundle;
-import com.sixrr.stockmetrics.methodCalculators.HalsteadBugsMethodCalculator;
+import com.sixrr.stockmetrics.methodCalculators.HalsteadEstimatedLengthMethodCalculator;
 import org.jetbrains.annotations.NotNull;
 
 public class HalsteadEstimatedLengthMethodMetric extends MethodMetric {
