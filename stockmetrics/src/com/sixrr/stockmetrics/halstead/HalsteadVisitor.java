@@ -54,7 +54,11 @@ public class HalsteadVisitor extends JavaRecursiveElementVisitor {
     }
 
     public double getEstimatedLength() {
-        return operands.size() * Math.log(operands.size()) + operators.size() * Math.log(operators.size());
+        if (operands.size() != 0 && operators.size() != 0) {
+            return operands.size() * Math.log(operands.size()) + operators.size() * Math.log(operators.size());
+        } else {
+            return 0;
+        }
     }
 
     public double getIntelligence() {
