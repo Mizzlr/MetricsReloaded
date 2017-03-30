@@ -161,6 +161,7 @@ public class JavaMetricProvider implements MetricProvider {
         metrics.add(new HalsteadBigN2MethodMetric());
 
         metrics.add(new MaintainabilityIndexMethodMetric());
+        metrics.add(new ProgrammerEfficiencyMethodMetric());
 
         metrics.add(new JavadocLinesOfCodeMethodMetric());
         metrics.add(new LinesOfCodeMethodMetric());
@@ -696,6 +697,7 @@ public class JavaMetricProvider implements MetricProvider {
         final PrebuiltMetricProfile profile =
                 new PrebuiltMetricProfile(StockMetricsBundle.message("all.metrics.profile.name"));
         profile.addMetric(MaintainabilityIndexMethodMetric.class);
+        profile.addMetric(ProgrammerEfficiencyMethodMetric.class);
         profile.addMetric(AdjustedLevelOrderClassMetric.class);
         profile.addMetric(AverageOperationComplexityMetric.class);
         profile.addMetric(AverageOperationParametersMetric.class);
@@ -1005,6 +1007,7 @@ public class JavaMetricProvider implements MetricProvider {
         profile.addMetric(HalsteadBigN1MethodMetric.class); // the N1
         profile.addMetric(HalsteadBigN2MethodMetric.class); // the N2
         profile.addMetric(MaintainabilityIndexMethodMetric.class);
+        profile.addMetric(ProgrammerEfficiencyMethodMetric.class);
         return profile;
     }
 }
