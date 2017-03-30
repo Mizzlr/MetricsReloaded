@@ -25,7 +25,6 @@
 
 package com.sixrr.stockmetrics.methodCalculators;
 
-import com.intellij.psi.Math;
 import com.intellij.psi.JavaRecursiveElementVisitor;
 import com.intellij.psi.PsiElementVisitor;
 import com.intellij.psi.PsiMethod;
