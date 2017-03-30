@@ -23,7 +23,7 @@ import com.sixrr.stockmetrics.i18n.StockMetricsBundle;
 import com.sixrr.stockmetrics.methodCalculators.HalsteadBugsMethodCalculator;
 import org.jetbrains.annotations.NotNull;
 
-public class HalsteadBugsMethodMetric extends MethodMetric {
+public class HalsteadIntelligenceMethodMetric extends MethodMetric {
     @NotNull
     @Override
     public String getDisplayName() {
