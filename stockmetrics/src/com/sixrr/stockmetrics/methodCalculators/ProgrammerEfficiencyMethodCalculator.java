@@ -78,9 +78,9 @@ public class ProgrammerEfficiencyMethodCalculator extends MethodCalculator {
                 double programTimeMethod = (double) visitor.getProgramTime() / 60.0; // T(c) --> (Halstead Program Time of that method) / 60
 
                 // E(Prog) = SQRT(F(c) x LOC(d) x P(s) x T(c) x E)
-                double programmerEfficiencyMethod = Math.sqrt(functionComplexity
-                    * linesOfCode * programmerStatus * programTimeMethod * efficiencyConstant);
-;
+                double programmerEfficiencyMethod = Math.min(Math.sqrt(functionComplexity
+                    * linesOfCode * programmerStatus * programTimeMethod * efficiencyConstant), 100);
+
                 postMetric(method, programmerEfficiencyMethod);
             }
             methodNestingDepth++;
