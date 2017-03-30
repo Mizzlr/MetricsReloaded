@@ -50,7 +50,36 @@ public class HalsteadVisitor extends JavaRecursiveElementVisitor {
     }
 
     public int getLength() {
-        return numOperands + numOperators;
+        return numOperands + numOperators; // N1 + N2
+    }
+
+    public double getEstimatedLength() {
+        return operands.size() * Math.log(operands.size()) + operators.size() * Math.log(operators.size());
+    }
+
+    public double getIntelligence() {
+        // this.INTELLIGENT_CONTENT=(2*this.n2/(this.n1*this.N2)) * this.VOLUME;
+        return 2 * getNumDistinctOperands() / (getNumDistinctOperators() * numOperands) * getVolume();
+    }
+
+    public double getProgramTime() {
+        return getEffort() / 18.0;
+    }
+
+    public double getn1() {
+        return operators.size();
+    }
+
+    public double getn2() {
+        return operands.size();
+    }
+
+    public double getN1() {
+        return numOperators;
+    }
+
+    public double getN2() {
+        return numOperands;
     }
 
     public int getVocabulary() {
