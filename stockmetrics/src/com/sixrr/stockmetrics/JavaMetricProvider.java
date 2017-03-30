@@ -348,6 +348,7 @@ public class JavaMetricProvider implements MetricProvider {
         out.add(createBuggyProfile());
         out.add(createOtherProfile());
         out.add(createAllProfile());
+        out.add(createHalsteadProfile());
         return out;
     }
 
