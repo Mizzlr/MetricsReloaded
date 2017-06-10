@@ -2,11 +2,12 @@
 
 <project name="MetricsReloaded" default="package">
 
-  <!--<property file="build.properties"/>-->
+  <property file="build.properties"/>
 
   <!-- override these two in a build.properties file -->
-  <property name="idea.dir" value="/Applications/IntelliJ IDEA.app/Contents"/>
-  <property name="idea.plugin.dir" value="${user.home}/Library/Application Support/IntelliJIdea2016.1"/>
+  <!-- <property name="idea.dir" value="/app/tools/Idea"/> -->
+  <property name="idea.dir" value="/opt/intellij"/>
+  <property name="idea.plugin.dir" value="/root/.IdeaIC2016.3/config/plugins"/>
 
   <property name="src.dir" value="src"/>
   <property name="build.classes.dir" value="build/jar-classes"/>
@@ -32,10 +33,8 @@
 
   <property name="build.compiler" value="modern"/>
   <path id="openapi.class.path">
-    <pathelement location="${idea.dir}/redist/annotations.jar"/>
-    <pathelement location="${idea.dir}/lib/openapi.jar"/>
-    <pathelement location="${idea.dir}/lib/util.jar"/>
-    <pathelement location="${idea.dir}/lib/extensions.jar"/>
+    <fileset dir="${idea.dir}/lib" includes="*.jar"/>
+    <fileset dir="${idea.dir}/redist" includes="*.jar"/>
   </path>
 
   <path id="plugin.class.path">
@@ -48,6 +47,14 @@
     <fileset dir="${idea.dir}/redist" includes="*.jar"/>
     <fileset dir="${idea.dir}/plugins" includes="**/*.jar"/>
     <fileset dir="${idea.plugin.dir}" includes="**/*.jar"/>
+    <fileset dir="customLibs" includes="**/*.jar"/>
+    <!-- <pathelement location="${idea.dir}/lib/idea.jar"/>
+    <pathelement location="${idea.dir}/lib/openAPI.jar"/>
+    <pathelement location="${idea.dir}/lib/jdom.jar"/>
+    <pathelement location="${idea.dir}/lib/util.jar"/>
+    <pathelement location="${idea.dir}/lib/extensions.jar"/>
+    <pathelement location="${idea.dir}/redist/forms_rt.jar"/>
+    <pathelement location="${idea.dir}/redist/annotations.jar"/> -->
   </path>
 
   <path id="javac2.classpath">
@@ -100,7 +107,7 @@
     </jar>
     <delete failonerror="false" dir="${utils.build.classes.dir}"/>
   </target>
-  
+
   <target name="compile-stockmetrics" depends="prepare, compile-openapi, compile-utils">
     <javac2 srcdir="${stockmetrics.src.dir}" destdir="${stockmetrics.build.classes.dir}"
            includes="com/sixrr/**" debug="${debug}">

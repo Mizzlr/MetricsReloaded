@@ -357,6 +357,8 @@ public class JavaMetricProvider implements MetricProvider {
         out.add(createOtherProfile());
         out.add(createAllProfile());
         out.add(createHalsteadProfile());
+
+        out.add(createCustomProfile());
         return out;
     }
 
@@ -1008,6 +1010,71 @@ public class JavaMetricProvider implements MetricProvider {
         profile.addMetric(HalsteadBigN2MethodMetric.class); // the N2
         profile.addMetric(MaintainabilityIndexMethodMetric.class);
         profile.addMetric(ProgrammerEfficiencyMethodMetric.class);
+        return profile;
+    }
+
+    private static PrebuiltMetricProfile createCustomProfile() {
+        final PrebuiltMetricProfile profile =
+                new PrebuiltMetricProfile(StockMetricsBundle.message("custom.metrics.profile.name"));
+                
+        // profile.addMetric(NumAnnotationInterfacesPackageMetric.class);
+
+        // package metrics
+        profile.addMetric(NumCyclicDependenciesPackageMetric.class);
+        profile.addMetric(NumRootClassesPackageMetric.class);
+        profile.addMetric(EncapsulationRatioPackageMetric.class);
+        profile.addMetric(DistanceMetric.class);
+        profile.addMetric(InstabilityMetric.class);
+        profile.addMetric(NumTestAssertsPackageMetric.class);
+        profile.addMetric(NumTestCasesPackageMetric.class);
+        profile.addMetric(NumTestMethodsPackageMetric.class);
+
+        // class metrics
+        profile.addMetric(NumAttributesAddedMetric.class);
+        profile.addMetric(NumAttributesInheritedMetric.class);
+        profile.addMetric(NumCommandsClassMetric.class);
+        profile.addMetric(NumConstructorsMetric.class);
+        profile.addMetric(NumCyclicDependenciesClassMetric.class);
+        profile.addMetric(NumOperationsAddedMetric.class);
+        profile.addMetric(NumOperationsInheritedMetric.class);
+        profile.addMetric(NumOperationsOverriddenMetric.class);
+        profile.addMetric(NumQueriesClassMetric.class);
+        profile.addMetric(NumSubclassesMetric.class);
+        profile.addMetric(LackOfCohesionOfMethodsClassMetric.class);
+        profile.addMetric(DepthOfInheritanceMetric.class);
+        profile.addMetric(HalsteadBugsClassMetric.class);
+        profile.addMetric(HalsteadDifficultyClassMetric.class);
+        profile.addMetric(HalsteadEffortClassMetric.class);
+        profile.addMetric(HalsteadLengthClassMetric.class);
+        profile.addMetric(HalsteadVocabularyClassMetric.class);
+        profile.addMetric(HalsteadVolumeClassMetric.class);
+        profile.addMetric(NumTestAssertsClassMetric.class);
+        profile.addMetric(NumTestMethodsClassMetric.class);
+
+        // interface metrics
+        profile.addMetric(NumCyclicDependenciesInterfaceMetric.class);
+        profile.addMetric(NumQueriesInterfaceMetric.class);
+        profile.addMetric(NumImplementationsMetric.class);
+        profile.addMetric(NumSubinterfacesMetric.class);
+
+        // method metrics
+        profile.addMetric(ConditionalNestingDepthMetric.class);
+        profile.addMetric(ControlDensityMetric.class);
+        profile.addMetric(DesignComplexityMetric.class);
+        profile.addMetric(QCPCorrectnessMetric.class);
+        profile.addMetric(HalsteadBugsMethodMetric.class);
+        profile.addMetric(HalsteadDifficultyMethodMetric.class);
+        profile.addMetric(HalsteadEffortMethodMetric.class);
+        profile.addMetric(HalsteadLengthMethodMetric.class);
+        profile.addMetric(HalsteadVocabularyMethodMetric.class);
+        profile.addMetric(HalsteadVolumeMethodMetric.class);
+        profile.addMetric(QCPMaintainabilityMetric.class);
+        profile.addMetric(NumTimesCalledMetric.class);
+        profile.addMetric(NumTimesCalledTestMetric.class);
+        profile.addMetric(LoopNestingDepthMetric.class);
+        profile.addMetric(NestingDepthMetric.class);
+        profile.addMetric(QCPReliabilityMetric.class);
+
         return profile;
     }
 }
