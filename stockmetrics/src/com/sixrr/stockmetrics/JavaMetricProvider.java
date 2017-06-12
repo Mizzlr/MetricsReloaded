@@ -1016,10 +1016,10 @@ public class JavaMetricProvider implements MetricProvider {
     private static PrebuiltMetricProfile createCustomProfile() {
         final PrebuiltMetricProfile profile =
                 new PrebuiltMetricProfile(StockMetricsBundle.message("custom.metrics.profile.name"));
-                
-        // profile.addMetric(NumAnnotationInterfacesPackageMetric.class);
-
+               
+        
         // package metrics
+        profile.addMetric(NumAnnotationClassesPackageMetric.class);
         profile.addMetric(NumCyclicDependenciesPackageMetric.class);
         profile.addMetric(NumRootClassesPackageMetric.class);
         profile.addMetric(EncapsulationRatioPackageMetric.class);
